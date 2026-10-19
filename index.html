@@ -1,0 +1,683 @@
+<title>Arvind Choudhary</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Arvind Choudhary — AI engineer on the Data & AI team at Opus Technologies, Pune.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Serif:ital@1&family=Geist:wght@400;500;600;700&family=Kaushan+Script&display=swap">
+<style>
+/* Layout: profile-card portfolio. A dashed frame holds banner → avatar → name → sections; tabs swap Home / Projects / Contact. */
+:root{
+  --bg:#111112;
+  --card:#18181a;
+  --raise:#202023;
+  --line:#34343a;
+  --fg:#f1f0ee;
+  --dim:#9b9aa1;
+  --accent:#e8b25c;     /* swap this one value to recolor the site */
+  --ok:#5fd38d;
+  --f-head:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --f-ital:"Instrument Serif", Georgia, serif;
+  --f-body:"Geist", "Segoe UI", system-ui, sans-serif;
+  --f-logo:"Kaushan Script", "Brush Script MT", cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#111}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.gutter{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:color-mix(in srgb,var(--card) 88%,transparent)}
+.nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:9;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.9rem}
+.logo{font-family:var(--f-logo);font-size:1.7rem;line-height:1;text-decoration:none;background:none;border:0;padding:0}
+.tabs{display:flex;gap:clamp(.9rem,3vw,2.5rem);flex-wrap:wrap}
+.tabs button{background:none;border:0;padding:.25rem 0;color:var(--dim);font-weight:600;font-size:1rem;border-bottom:2px solid transparent}
+.tabs button:hover{color:var(--fg)}
+.tabs button[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
+
+/* frame */
+main{max-width:70rem;margin:0 auto;padding-block:1.5rem 0}
+.frame{border:1.5px dashed var(--line);border-radius:28px;padding:clamp(16px,4vw,48px)}
+.dash{border:1.5px dashed var(--line);border-radius:22px;background:var(--card)}
+h2{font-family:var(--f-head);font-weight:400;font-size:clamp(1.9rem,4vw,2.5rem);letter-spacing:-.02em;line-height:1.1;margin:0 0 1.5rem;text-wrap:balance}
+.block{margin-top:clamp(3rem,7vw,4.5rem)}
+
+/* hero */
+.banner{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/1;min-height:150px;max-width:100%;background:#0b1024}
+.banner canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.id{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-top:calc(-1 * clamp(48px,7vw,72px));padding-left:clamp(12px,3vw,40px);position:relative}
+.avatar{width:clamp(96px,14vw,144px);aspect-ratio:1;max-width:100%;border-radius:50%;border:4px solid var(--accent);background:var(--raise);overflow:hidden;box-shadow:0 0 0 6px var(--bg)}
+.avatar svg,.avatar img{width:100%;height:100%;display:block;object-fit:cover}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:99px;padding:.8rem 1.4rem;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--card)}
+.btn:hover{border-color:var(--dim)}
+.btn.light{background:var(--fg);color:#141414;border-color:var(--fg)}
+.btn.light:hover{background:#fff}
+.btn svg{width:16px;height:16px}
+.who{padding-left:clamp(0px,1vw,8px);margin-top:1.4rem}
+.who h1{font-family:var(--f-head);font-weight:400;font-size:clamp(2.2rem,5.5vw,3.2rem);letter-spacing:-.03em;line-height:1.05;margin:0;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.who h1 svg{width:.6em;height:.6em;flex:none}
+.role{font-size:clamp(1.5rem,3.6vw,2.1rem);color:var(--accent);min-height:1.4em;margin:.2rem 0 .35rem;font-weight:500}
+.role .caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-.12em;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.where{color:var(--dim);margin:0}
+
+/* now */
+.now{display:grid;gap:0;padding:.5rem clamp(16px,3vw,32px)}
+.now-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1rem;align-items:center;padding-block:1.1rem;border-top:1px dashed var(--line)}
+.now-row:first-child{border-top:0}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--c,var(--ok));box-shadow:0 0 0 0 color-mix(in srgb,var(--c,var(--ok)) 60%,transparent);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.now-row b{font-weight:600}
+.now-row span{color:var(--dim)}
+.now-row em{font-style:normal;font-size:.85rem;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:.15rem .7rem;white-space:nowrap}
+
+/* about */
+.about p{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--dim);margin:0 0 1.25rem;max-width:70ch}
+.about strong{color:var(--fg);font-weight:600}
+
+/* marquee */
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:1rem;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - .5rem))}}
+.pill{display:inline-flex;align-items:center;gap:.55rem;padding:.6rem 1.1rem;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;white-space:nowrap}
+.pill i{width:1.35rem;height:1.35rem;border-radius:6px;display:grid;place-items:center;font-style:normal;font-size:.7rem;font-weight:700;color:#111;background:var(--k,#888)}
+
+/* freelance */
+.free{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding:clamp(20px,3.5vw,44px)}
+.free p{margin:0;font-size:1.15rem;color:color-mix(in srgb,var(--fg) 80%,var(--dim));max-width:56ch;flex:1 1 20rem}
+
+/* accordion */
+.acc{overflow:hidden}
+.acc details{border-top:1px solid var(--line)}
+.acc details:first-child{border-top:0}
+.acc summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:1rem;align-items:center;padding:1.5rem clamp(16px,3vw,32px);cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{background:var(--raise)}
+.acc h3{margin:0;font-size:1.3rem;font-weight:700}
+.acc .sub{color:var(--dim);margin:.1rem 0 0}
+.acc time{color:var(--dim);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chev{width:18px;height:18px;transition:transform .25s;color:var(--dim)}
+.acc details[open] .chev{transform:rotate(180deg)}
+.acc .body{padding:0 clamp(16px,3vw,32px) 1.5rem;color:var(--dim);max-width:70ch}
+.acc .body ul{margin:0;padding-left:1.1rem;display:grid;gap:.35rem}
+
+/* github */
+.gh{padding:clamp(18px,3vw,36px);display:grid;gap:1.25rem}
+.gh-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.gh-head b{font-size:1.15rem}
+.repos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));gap:.75rem}
+.repo{display:block;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;background:var(--bg)}
+.repo:hover{border-color:var(--dim)}
+.repo b{display:block;font-weight:600;overflow-wrap:anywhere}
+.repo span{font-size:.85rem;color:var(--dim);display:inline-flex;align-items:center;gap:.4rem;margin-top:.35rem}
+.repo span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--k,#888)}
+
+/* socials */
+.socials{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;padding:clamp(20px,4vw,48px)}
+.soc{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.6rem;border-radius:16px;border:1px solid var(--line);background:var(--bg);text-decoration:none;font-weight:600}
+.soc:hover{border-color:var(--dim)}
+.soc svg{width:20px;height:20px}
+
+/* closer */
+.closer{text-align:center;padding-block:clamp(3.5rem,8vw,5rem) 2rem;border-top:1px solid var(--line);margin-top:clamp(3rem,7vw,5rem)}
+.closer p.big{font-family:var(--f-ital);font-style:italic;font-size:clamp(2rem,4.5vw,2.8rem);line-height:1.2;margin:0 0 2rem}
+.made{color:var(--dim);margin:2.2rem 0 0;display:flex;justify-content:center;align-items:center;gap:.4rem;flex-wrap:wrap}
+.made .logo{font-size:1.3rem;color:var(--fg)}
+.made .heart{color:var(--accent)}
+
+/* projects view */
+.p-head{text-align:center;padding-block:1.5rem 3rem}
+.eyebrow{letter-spacing:.35em;text-transform:uppercase;font-weight:700;font-size:.8rem;color:var(--dim)}
+.p-head h1{font-family:var(--f-head);font-weight:400;font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.03em;margin:.5rem 0 1rem;line-height:1;display:flex;justify-content:center;align-items:center;gap:.25em;flex-wrap:wrap}
+.swap{display:inline-block;border:1.5px dashed var(--line);border-radius:12px;padding:0 .2em;color:var(--dim);min-width:3.2em}
+.p-head p{color:var(--dim);font-size:1.15rem;max-width:44ch;margin:0 auto}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,26rem),1fr));gap:2rem;align-items:start}
+.proj{overflow:hidden}
+.shot{padding:clamp(18px,3vw,30px) clamp(18px,3vw,30px) 0;background:linear-gradient(160deg,var(--t1),var(--t2))}
+.screen{aspect-ratio:16/10;max-width:100%;background:#050505;border-radius:14px 14px 0 0;display:grid;place-items:center;position:relative;overflow:hidden}
+.screen b{font-family:var(--f-logo);font-weight:400;font-size:clamp(2rem,5vw,2.8rem);color:#fff;position:relative;z-index:1}
+.screen small{position:absolute;bottom:12px;left:14px;right:14px;font-size:.72rem;color:#8d8d93;letter-spacing:.06em;text-transform:uppercase;z-index:1}
+.screen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,color-mix(in srgb,var(--t1) 45%,transparent),transparent 60%)}
+.pbody{padding:clamp(18px,3vw,28px)}
+.ptop{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.ptop h3{font-family:var(--f-head);font-weight:400;font-size:1.75rem;margin:0;letter-spacing:-.02em;line-height:1.1}
+.status{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--line);border-radius:99px;padding:.35rem .9rem;font-weight:600;font-size:.9rem;white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,var(--ok))}
+.pline{margin:.7rem 0 .4rem;font-weight:500}
+.pdesc{margin:0 0 1.1rem;color:var(--dim)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0;padding:0;list-style:none;color:var(--dim);font-weight:600;font-size:.88rem}
+.tags li::before{content:"•";margin-right:.5rem;color:var(--line)}
+.tags li:first-child::before{content:none}
+.plink{display:inline-block;margin-top:1rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--accent)}
+
+/* contact view */
+.contact{max-width:40rem;margin:1rem auto 0;padding:clamp(22px,4vw,46px)}
+.contact h1{font-family:var(--f-head);font-weight:400;font-size:clamp(2rem,5vw,2.6rem);letter-spacing:-.02em;margin:0 0 .6rem}
+.contact > p{color:var(--dim);margin:0 0 2rem;font-size:1.1rem}
+form{display:grid;gap:1rem}
+input,textarea{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;font-size:1.05rem}
+input::placeholder,textarea::placeholder{color:var(--dim)}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:9rem;resize:vertical}
+.send{justify-content:center;padding:1.1rem;font-size:1.05rem;border-radius:14px;background:var(--raise)}
+.note{min-height:1.5em;color:var(--dim);margin:0;font-size:.95rem}
+.mailrow{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.5rem;border-top:1px dashed var(--line);color:var(--dim)}
+.mailrow b{color:var(--fg);user-select:all;overflow-wrap:anywhere}
+.mini{border:1px solid var(--line);background:none;border-radius:99px;padding:.3rem .9rem;font-weight:600;font-size:.88rem}
+
+/* blog */
+.chips{display:flex;gap:.75rem;flex-wrap:wrap;margin:0 auto 2.5rem;max-width:62rem}
+.chip{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:.55rem 1.1rem;font-weight:600}
+.chip b{font-weight:600;font-size:.82rem;background:var(--raise);border-radius:99px;padding:.05rem .5rem;color:var(--dim)}
+.chip[aria-pressed="true"]{background:var(--fg);color:#141414;border-color:var(--fg)}
+.chip[aria-pressed="true"] b{background:#e4e3e0;color:#141414}
+.posts{display:grid;gap:2rem;max-width:62rem;margin:0 auto}
+.post{display:grid;grid-template-columns:minmax(0,26rem) minmax(0,1fr);overflow:hidden}
+.cover{background:#f4f2ec;color:#121212;padding:1.6rem;display:flex;flex-direction:column;justify-content:center;gap:.5rem;min-height:15rem;position:relative;overflow:hidden;background-image:linear-gradient(#0000000a 1px,transparent 1px),linear-gradient(90deg,#0000000a 1px,transparent 1px);background-size:22px 22px}
+.cover .kick{font-family:var(--f-ital);font-style:italic;font-size:1.05rem;color:#555}
+.cover .big{font-family:var(--f-body);font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.cover .big em{font-style:normal;color:#b9771f}
+.layers3{display:flex;gap:6px;margin-top:.4rem}
+.layers3 span{flex:1;height:10px;border-radius:3px}
+.term{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;background:#121212;color:#cfe8d5;border-radius:10px;padding:.7rem .85rem;line-height:1.55;margin-top:.5rem}
+.term s{text-decoration:none;color:#ff8a7a}
+.pinfo{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;justify-content:center;gap:.7rem}
+.pinfo h3{font-family:var(--f-head);font-weight:400;font-size:clamp(1.6rem,3vw,2rem);letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
+.pinfo p{margin:0;color:var(--dim);font-size:1.05rem}
+.meta{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;color:var(--dim);font-size:.92rem}
+.tag{background:var(--raise);color:var(--fg);border-radius:8px;padding:.15rem .6rem;font-weight:600;font-size:.85rem}
+.read{align-self:flex-start;margin-top:.4rem}
+.reader{max-width:44rem;margin:0 auto}
+.reader .back{margin-bottom:2rem}
+.reader h1{font-family:var(--f-head);font-weight:400;font-size:clamp(2.2rem,5.5vw,3.3rem);line-height:1.05;letter-spacing:-.03em;margin:1rem 0 .8rem;text-wrap:balance}
+.reader .dek{font-size:1.25rem;color:var(--dim);margin:0 0 1.2rem}
+.reader .cover{min-height:13rem;border-radius:20px;margin:2rem 0 2.5rem}
+.prose{font-size:1.12rem;line-height:1.75;color:color-mix(in srgb,var(--fg) 86%,var(--dim))}
+.prose h2{font-size:1.75rem;margin:2.4rem 0 .8rem}
+.prose p{margin:0 0 1.25rem}
+.prose strong{color:var(--fg)}
+.prose code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:var(--raise);padding:.1rem .4rem;border-radius:6px}
+.prose blockquote{margin:1.8rem 0;padding:.4rem 0 .4rem 1.4rem;border-left:3px solid var(--accent);font-family:var(--f-ital);font-style:italic;font-size:1.45rem;line-height:1.35;color:var(--fg)}
+.prose ul{padding-left:1.2rem;margin:0 0 1.25rem;display:grid;gap:.4rem}
+@media (max-width:760px){ .post{grid-template-columns:minmax(0,1fr)} }
+
+@media (max-width:640px){
+  .tabs button{font-size:.92rem}
+  .logo{font-size:1.4rem}
+  .id{padding-left:4px}
+  .cta{width:100%}
+  .now-row{grid-template-columns:auto minmax(0,1fr)}
+  .now-row em{grid-column:2;justify-self:start}
+  .acc summary{grid-template-columns:minmax(0,1fr) auto}
+  .acc time{grid-column:1;grid-row:2;font-size:.9rem}
+  .acc .chev{grid-column:2;grid-row:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .track,.pulse,.role .caret{animation:none}
+}
+</style>
+
+
+<header class="nav">
+  <div class="nav-in gutter">
+    <button class="logo" type="button" data-go="home" aria-label="Home">arvindbuilds</button>
+    <nav class="tabs" aria-label="Pages">
+      <button type="button" data-go="home" aria-current="page">Home</button>
+      <button type="button" data-go="projects">Projects</button>
+      <button type="button" data-go="blog">Blog</button>
+      <button type="button" data-go="contact">let's talk</button>
+    </nav>
+  </div>
+</header>
+
+<main class="gutter">
+
+<!-- ================= HOME ================= -->
+<div data-view="home">
+  <div class="frame">
+    <div class="banner"><canvas id="sky" aria-label="Flowing silk light in gold, rose and violet"></canvas></div>
+
+    <div class="id">
+      <div class="avatar" id="avatar">
+        <!-- swap for a photo: <img src="me.jpg" alt="Arvind Choudhary"> -->
+        <svg viewBox="0 0 200 200" role="img" aria-label="Arvind Choudhary avatar"><rect width="200" height="200" fill="#2a2f45"/><circle cx="100" cy="100" r="80" fill="#fff" opacity=".04"/><path d="M30 200c4-32 30-50 70-50s66 18 70 50z" fill="#1f1f24"/><path d="M70 152q30 22 60 0" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6" stroke-linecap="round"/><rect x="88" y="142" width="24" height="14" rx="6" fill="#c98e63"/><ellipse cx="100" cy="104" rx="52" ry="50" fill="#e0a67a"/><ellipse cx="49" cy="108" rx="7" ry="10" fill="#c98e63"/><ellipse cx="151" cy="108" rx="7" ry="10" fill="#c98e63"/><ellipse cx="72" cy="124" rx="9" ry="5.5" fill="#f07c86" opacity=".45"/><ellipse cx="128" cy="124" rx="9" ry="5.5" fill="#f07c86" opacity=".45"/><ellipse cx="80" cy="110" rx="8.5" ry="10.5" fill="#1a1310"/><circle cx="83" cy="106" r="3.2" fill="#fff"/><circle cx="77" cy="113" r="1.6" fill="#fff"/><path d="M112 110c4-5 12-5 16 0" stroke="#1a1310" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="80" cy="110" r="17" fill="#fff" fill-opacity=".12" stroke="#141414" stroke-width="3.5"/><circle cx="120" cy="110" r="17" fill="#fff" fill-opacity=".12" stroke="#141414" stroke-width="3.5"/><path d="M97 108q3-3 6 0M63 107l-12-3M137 107l12-3" stroke="#141414" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M70 88q10-6 20-2M110 86q10-4 20 2" stroke="#1a1310" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M91 132q9 7 18 0" stroke="#7a3b2a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 96c-2-42 22-64 50-64s52 22 50 64z" fill="#e8b25c"/><rect x="44" y="84" width="112" height="22" rx="11" fill="#c8913c"/><g stroke="#b07e30" stroke-width="2"><path d="M56 86v18"/><path d="M68 86v18"/><path d="M80 86v18"/><path d="M92 86v18"/><path d="M104 86v18"/><path d="M116 86v18"/><path d="M128 86v18"/><path d="M140 86v18"/></g><circle cx="100" cy="30" r="10" fill="#f3cf8e"/><path d="M52 106c4 4 8 6 12 6M148 106c-4 4-8 6-12 6" stroke="#1c1410" stroke-width="6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="cta">
+        <button class="btn light" type="button" data-go="projects">View Projects
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        <a class="btn" href="https://www.linkedin.com/in/arvind-choudhary09/" target="_blank" rel="noopener">View LinkedIn
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+
+    <div class="who">
+      <h1>Arvind Choudhary
+        <svg viewBox="0 0 24 24" aria-label="verified"><path fill="#3b9bf5" d="M12 1.5l2.6 1.9 3.2-.2 1 3 2.7 1.8-.9 3.1.9 3.1-2.7 1.8-1 3-3.2-.2L12 22.5l-2.6-1.9-3.2.2-1-3-2.7-1.8.9-3.1-.9-3.1 2.7-1.8 1-3 3.2.2z"/><path d="M8 12.2l2.7 2.6L16.2 9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </h1>
+      <p class="role" aria-live="polite"><span id="typed">AI Engineer</span><span class="caret"></span></p>
+      <p class="where">SDE @ Opus Technologies · Pune, India</p>
+    </div>
+
+    <section class="block" aria-labelledby="now-h">
+      <h2 id="now-h">Recently Shipped</h2>
+      <div class="dash now">
+        <div class="now-row"><i class="pulse"></i><div><b>Medallion for AI</b> <span>· Opus's data-for-AI architecture</span></div><em>shipped</em></div>
+        <div class="now-row"><i class="pulse"></i><div><b>Data Product Marketplace</b> <span>· governed data, one click away</span></div><em>shipped</em></div>
+        <div class="now-row"><i class="pulse" style="--c:var(--accent)"></i><div><b>Axon</b> <span>· my agent that runs my laptop and phone</span></div><em>completed</em></div>
+        <div class="now-row"><i class="pulse" style="--c:#8fa8e8"></i><div><b>AEVRO</b> <span>· live with paying customers</span></div><em>live</em></div>
+      </div>
+    </section>
+
+    <section class="block about" aria-labelledby="who-h">
+      <h2 id="who-h">Who is Arvind?</h2>
+      <p>I build <strong>AI products end to end and ship them to real users</strong>. The API, the database, the LLM layer, the WhatsApp or voice interface, the dashboard on top. I like owning <strong>the whole path from idea to production</strong>.</p>
+      <p>By day I'm an <strong>SDE on the Data &amp; AI team at Opus Technologies</strong>, working on how enterprise data becomes reusable context for AI, with <strong>Databricks</strong> underneath. After hours I run <strong>AEVRO</strong>, a clothing brand whose store I built and launched myself, and I built <strong>Axon</strong>, an agent that does real work on my laptop and phone.</p>
+    </section>
+
+    <section class="block" aria-labelledby="stack-h">
+      <h2 id="stack-h">Tech Stack</h2>
+      <div class="marquee"><div class="track" id="track"></div></div>
+    </section>
+
+    <section class="block" aria-labelledby="free-h">
+      <h2 id="free-h">Freelancing</h2>
+      <div class="dash free">
+        <p>I build AI agents, WhatsApp bots and full-stack products for founders and teams. Bring the idea; I'll take it from first commit to a live, paid-for product.</p>
+        <button class="btn" type="button" data-go="contact">Hire Me
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="exp-h">
+      <h2 id="exp-h">Experience</h2>
+      <div class="dash acc">
+        <details open>
+          <summary><div><h3>Opus Technologies</h3><p class="sub">SDE, Data &amp; AI · Pune</p></div><time>2026 — Present</time>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg></summary>
+          <div class="body"><ul>
+            <li>Delivered Medallion for AI: Bronze, Silver and Gold layers that turn raw data into reusable context for Opus's AI accelerators.</li>
+            <li>Designed and built OPUS Marketplace with a teammate: a FastAPI and React data product marketplace on Databricks with 36 API endpoints, four roles from user to admin, and server-side masking of sensitive columns.</li>
+            <li>Owned governance, personas, lineage and data quality in the "Data Storage Strategies using AI" presentation.</li>
+          </ul></div>
+        </details>
+        <details>
+          <summary><div><h3>AEVRO</h3><p class="sub">Founder &amp; engineer · theaevro.com</p></div><time>Ongoing</time>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg></summary>
+          <div class="body"><ul>
+            <li>Built and launched the full commerce stack: Next.js, NestJS, PostgreSQL, Razorpay live payments, Shiprocket shipping.</li>
+            <li>Run the brand day to day: catalogue, policies, fulfilment.</li>
+          </ul></div>
+        </details>
+        <details>
+          <summary><div><h3>Lovely Professional University</h3><p class="sub">B.Tech, Computer Science &amp; Engineering · Punjab</p></div><time>Class of 2026</time>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg></summary>
+          <div class="body"><ul>
+            <li>Spent most of it building: AI assistants, WhatsApp bots, an LSTM stock predictor and full-stack apps.</li>
+          </ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="gh-h">
+      <h2 id="gh-h">Best on GitHub</h2>
+      <div class="dash gh">
+        <div class="gh-head"><b>@arvinddchoudhary · 27 repositories</b>
+          <a class="btn" href="https://github.com/arvinddchoudhary?tab=repositories" target="_blank" rel="noopener">See all repos
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+        <div class="repos" id="repos"></div>
+      </div>
+    </section>
+
+    <div class="dash socials block">
+      <a class="soc" href="https://github.com/arvinddchoudhary" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 00-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0C17.6 4 18.6 4.3 18.6 4.3c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0012 .5z"/></svg>GitHub</a>
+      <a class="soc" href="https://www.linkedin.com/in/arvind-choudhary09/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 2H3.6C2.7 2 2 2.7 2 3.6v16.8c0 .9.7 1.6 1.6 1.6h16.8c.9 0 1.6-.7 1.6-1.6V3.6c0-.9-.7-1.6-1.6-1.6zM8 19H5V9.5h3zM6.5 8.2a1.7 1.7 0 110-3.5 1.7 1.7 0 010 3.5zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5S12.7 13 12.7 14.3V19h-3V9.5h2.9v1.3c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.6 2 3.6 4.7z"/></svg>LinkedIn</a>
+      <a class="soc" href="https://x.com/Arvindddd_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 2h3.3l-7.2 8.3L22.4 22h-6.6l-5.2-6.8L4.6 22H1.3l7.7-8.8L.9 2h6.8l4.7 6.2zm-1.2 18h1.8L6.5 3.9H4.6z"/></svg>X (Twitter)</a>
+      <button class="soc" type="button" data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROJECTS ================= -->
+<div data-view="projects" hidden>
+  <div class="p-head">
+    <div class="eyebrow">Projects</div>
+    <h1>Things I've <span class="swap" id="swap">built</span></h1>
+    <p>AI agents, data platforms and products with real users and real payments.</p>
+  </div>
+  <div class="plist" id="plist"></div>
+</div>
+
+<!-- ================= BLOG ================= -->
+<div data-view="blog" hidden>
+  <div id="blog-list">
+    <div class="p-head">
+      <div class="eyebrow">Blog</div>
+      <h1>Notes from the <span class="swap">build</span></h1>
+      <p>What I learn shipping AI agents and data platforms, written down so you don't repeat my mistakes.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Filter posts" id="chips"></div>
+    <div class="posts" id="posts"></div>
+  </div>
+  <article class="reader" id="reader" hidden></article>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div data-view="contact" hidden>
+  <div class="dash contact">
+    <h1>Send a Message</h1>
+    <p>Want me on a full-time role, a freelance build or an AI side project? Write to me and I'll reply within 24 hours.</p>
+    <form id="form" novalidate>
+      <input id="f-name" name="name" placeholder="Full Name" autocomplete="name" required>
+      <input id="f-email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+      <textarea id="f-msg" name="message" placeholder="Your Message" required></textarea>
+      <button class="btn send" type="submit">Send Message
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+      <p class="note" id="note" role="status"></p>
+    </form>
+    <div class="mailrow">Or email directly: <b id="mail">arvindchoudhary0809@gmail.com</b><button class="mini" id="copy" type="button">Copy</button></div>
+  </div>
+</div>
+
+<footer class="closer">
+  <p class="big">Have an idea?<br>Let's build something together.</p>
+  <button class="btn" type="button" data-go="contact">Let's Talk
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+  <p class="made">Built with <span class="heart">♥</span> and a lot of chai by <span class="logo">arvindbuilds</span></p>
+</footer>
+</main>
+
+<script>
+const EMAIL = "arvindchoudhary0809@gmail.com";
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- tabs ---------- */
+const views = [...document.querySelectorAll("[data-view]")];
+function go(name, push){
+  if (!views.some(v => v.dataset.view === name)) name = "home";
+  views.forEach(v => v.hidden = v.dataset.view !== name);
+  document.querySelectorAll(".tabs button").forEach(b => b.dataset.go === name ? b.setAttribute("aria-current","page") : b.removeAttribute("aria-current"));
+  if (push) { try { history.replaceState(null, "", name === "home" ? location.pathname : "#" + name); } catch(e){} }
+  scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) { e.preventDefault(); go(b.dataset.go, true); } });
+go((location.hash || "").slice(1) || "home", false);
+
+/* ---------- typewriter ---------- */
+(function(){
+  const roles = ["AI Engineer", "Agent Builder", "Data & AI @ Opus", "Full-Stack Shipper", "Founder, AEVRO"];
+  const el = document.getElementById("typed");
+  if (reduceMotion) return;
+  let r = 0, i = roles[0].length, del = true;
+  function tick(){
+    const w = roles[r];
+    i += del ? -1 : 1;
+    el.textContent = w.slice(0, i);
+    let wait = del ? 45 : 85;
+    if (!del && i === w.length) { del = true; wait = 1800; }
+    else if (del && i === 0) { del = false; r = (r + 1) % roles.length; wait = 350; }
+    setTimeout(tick, wait);
+  }
+  setTimeout(tick, 2200);
+})();
+
+/* ---------- stack marquee ---------- */
+(function(){
+  const stack = [["Python","#3572A5","Py"],["FastAPI","#05998b","Fa"],["Databricks","#ff3621","Db"],["OpenAI","#d9d9d9","AI"],["TypeScript","#3178c6","TS"],["Next.js","#e8e8e8","N"],["React","#61dafb","Re"],["NestJS","#e0234e","Ne"],["PostgreSQL","#4169e1","Pg"],["Supabase","#3ecf8e","Sb"],["Prisma","#a7b1c2","Pr"],["Playwright","#2ead33","Pw"],["Twilio","#f22f46","Tw"],["Razorpay","#3395ff","Rp"],["Vercel","#ededed","▲"],["Git","#f05032","G"]];
+  const html = stack.map(([n,c,t]) => `<span class="pill"><i style="--k:${c}">${t}</i>${n}</span>`).join("");
+  document.getElementById("track").innerHTML = html + html.replace(/class="pill"/g, 'class="pill" aria-hidden="true"');
+})();
+
+/* ---------- projects ---------- */
+(function(){
+  const P = [
+    { name:"Axon", t1:"#3fb6c9", t2:"#0f3a46", status:"Completed", c:"var(--ok)", line:"An AI agent that does real work on your laptop and phone.",
+      desc:"Say the wake word and give it a task. Axon plans the steps, then sees the screen, clicks and types in apps, drives the browser and controls an Android phone over ADB. Specialist agents take sub-tasks, it remembers what you told it, and it asks before anything risky.",
+      tags:["Python","GPT-4o-mini","Whisper","Porcupine","Playwright","ADB","SQLite"], cap:"wake word · plan · act · remember" },
+    { name:"Medallion", full:"Medallion for AI", t1:"#e8b25c", t2:"#5a3d14", status:"Completed", c:"var(--ok)", line:"Enterprise data turned into reusable AI context, at Opus.",
+      desc:"An architecture where every layer is a form of memory for AI. Bronze is a vector lake of raw data, Silver holds hierarchical chunks with rich metadata, and Gold is a context graph. Any Opus AI accelerator, from fraud detection to BI analytics, plugs into the same Gold layer instead of rebuilding its own pipeline.",
+      tags:["Databricks","Delta Lake","Vector stores","Knowledge graphs","RAG"], cap:"bronze → silver → gold" },
+    { name:"OPUS Marketplace", full:"Data Product Marketplace", t1:"#9b8cff", t2:"#2a2357", status:"Completed", c:"var(--ok)", line:"Opus's marketplace for governed payments data products.",
+      desc:"Teams browse data products by domain, search and filter by owner, tag or quality score, open datasets and columns, preview masked sample rows and request access. Databricks stays the single source of truth, so the marketplace never copies data, and every permission check and column mask runs on the server. Designed and built with my teammate Badal.",
+      tags:["FastAPI","React","Databricks","SQLite","Role-based access","Data masking"], cap:"36 endpoints · 4 roles · zero copied data" },
+    { name:"AEVRO", t1:"#e9d3b8", t2:"#6b5440", status:"Live", c:"var(--ok)", line:"Premium men's clothing brand, built and run by me.",
+      desc:"Full-stack store with prepaid Razorpay checkout, Shiprocket fulfilment, Cloudinary imagery and Brevo email. In production on Vercel and Render.",
+      tags:["Next.js","NestJS","Fastify","Prisma","PostgreSQL","Razorpay"], cap:"theaevro.com", link:"https://theaevro.com" },
+    { name:"Aria", t1:"#7fd6a0", t2:"#1d4a33", status:"Completed", c:"var(--ok)", line:"An AI hospital receptionist on WhatsApp.",
+      desc:"Patients book, reschedule and cancel in plain language; OpenAI function calling turns that into real database actions and reminders go out on schedule. Staff run it from a React dashboard.",
+      tags:["FastAPI","OpenAI functions","Twilio","Supabase","APScheduler","React"], cap:"whatsapp · bookings · reminders" }
+  ];
+  document.getElementById("plist").innerHTML = P.map(p => `
+    <article class="dash proj">
+      <div class="shot" style="--t1:${p.t1};--t2:${p.t2}"><div class="screen"><b>${p.name}</b><small>${p.cap}</small></div></div>
+      <div class="pbody">
+        <div class="ptop"><h3>${p.full || p.name}</h3><span class="status" style="--c:${p.c}">${p.status}</span></div>
+        <p class="pline">${p.line}</p>
+        <p class="pdesc">${p.desc}</p>
+        <ul class="tags">${p.tags.map(t => `<li>${t}</li>`).join("")}</ul>
+        ${p.link ? `<a class="plink" href="${p.link}" target="_blank" rel="noopener">Visit ${p.cap} ↗</a>` : ""}
+      </div>
+    </article>`).join("");
+
+  const words = ["built", "shipped", "designed"]; let w = 0;
+  if (!reduceMotion) setInterval(() => { w = (w + 1) % words.length; document.getElementById("swap").textContent = words[w]; }, 2200);
+})();
+
+/* ---------- best repos: add entries here ---------- */
+(function(){
+  // { name:"repo-name", desc:"one line", lang:"Python", color:"#3572A5" }
+  const BEST_REPOS = [
+    { name:"executive-secretary", desc:"SecretaryAI: a multi-agent assistant that reads Gmail, extracts tasks, books them into Google Calendar with Meet links and notifies senders. LLaMA 3.3 70B via Groq, F1 1.00 on actionability.", lang:"Python · React", color:"#3572A5" },
+    { name:"pci-dss", desc:"Full-stack app built around PCI DSS, the security standard for handling card payment data, with separate backend and frontend.", lang:"Backend + frontend", color:"#e8b25c" },
+    { name:"careops-platform", desc:"An operations platform for care teams, deployed live on Vercel.", lang:"Backend + frontend", color:"#5fd38d" },
+    { name:"galuco-vision-ai", desc:"Computer vision AI that screens eye images for signs of glaucoma.", lang:"Python · Vision", color:"#3fb6c9" },
+    { name:"Stock-prediction-using-LSTM", desc:"Django app that forecasts stock prices with an LSTM trained on Yahoo Finance data, with OTP sign-up and actual-vs-predicted charts.", lang:"Python · Django", color:"#3572A5" },
+    { name:"driving_school_website", desc:"Responsive website for a driving school: courses, pricing and enquiries.", lang:"HTML · CSS", color:"#663399" }
+  ];
+  const box = document.getElementById("repos");
+  if (!BEST_REPOS.length) { box.hidden = true; return; }
+  box.innerHTML = BEST_REPOS.map(r => `<a class="repo" href="https://github.com/arvinddchoudhary/${r.name}" target="_blank" rel="noopener"><b>${r.name}</b>${r.desc ? `<p style="margin:.3rem 0 0;color:var(--dim);font-size:.92rem">${r.desc}</p>` : ""}<span style="--k:${r.color || "#888"}">${r.lang || ""}</span></a>`).join("");
+})();
+
+/* ---------- blog ---------- */
+(function(){
+  const POSTS = [
+    {
+      id: "silver-layer",
+      title: "Your AI Is Only as Smart as Your Silver Layer",
+      dek: "Why the medallion architecture is quietly becoming the memory system for enterprise AI.",
+      tags: ["Data", "AI"], date: "October 12, 2026", mins: 6,
+      cover: `<span class="kick">a field note on</span><span class="big">Bronze<br>Silver<br><em>Gold</em></span><div class="layers3"><span style="background:#c7875a"></span><span style="background:#b9c0cc"></span><span style="background:#e8b25c"></span></div>`,
+      body: `
+<p>Every company I talk to wants an AI assistant over its own data. Most of them start the same way: point a large language model at a folder of PDFs, add a vector database, and ship a chatbot. It demos well. Then someone asks a real question and gets a confident, wrong answer.</p>
+<p>The instinct is to blame the model. In my experience the model is rarely the problem. <strong>Hallucination in enterprise AI is mostly a data problem.</strong> The model can only reason over the context you hand it, and most teams hand it a mess.</p>
+<p>At Opus I worked on a different approach, which we call Medallion for AI. The idea is simple: take the classic Bronze, Silver and Gold layers that data engineers already use for analytics, and treat each one as a different kind of memory for AI.</p>
+
+<h2>Bronze: keep everything, embed everything</h2>
+<p>Bronze is the raw layer. Documents, tables, tickets, emails, exactly as they arrived. In a traditional lakehouse you store these and move on. For AI, we also embed them, so Bronze becomes a vector lake you can search by meaning.</p>
+<p>The rule here is <strong>never transform in place</strong>. When an answer looks wrong six months from now, you need to trace it back to the original source. Bronze is your audit trail.</p>
+
+<h2>Silver: where context is actually made</h2>
+<p>This is the layer most AI projects skip, and it is the one that matters most. Silver takes raw content and turns it into clean, structured, trustworthy chunks.</p>
+<ul>
+<li><strong>Hierarchical chunking.</strong> A paragraph means more when the system knows which section, document and project it belongs to. Flat 500-token chunks throw that away.</li>
+<li><strong>Rich metadata.</strong> Owner, date, source system, sensitivity, version. Metadata lets retrieval filter before it ranks, which is where most accuracy gains come from.</li>
+<li><strong>Quality checks.</strong> Deduplicate, drop stale versions, flag contradictions. If two policies disagree, the AI should know that, not pick one at random.</li>
+</ul>
+<blockquote>A smaller model with clean Silver data beats a bigger model with a messy vector store.</blockquote>
+
+<h2>Gold: a graph of what things mean</h2>
+<p>Gold is where we connect the dots. Entities like customers, products and transactions become nodes, and relationships become edges. A context graph lets the AI answer questions that span many documents, such as "which suppliers are linked to accounts flagged last quarter", which pure similarity search cannot do.</p>
+
+<h2>One platform, many products</h2>
+<p>The real payoff is reuse. A fraud detection accelerator and a BI analytics assistant need very different interfaces, but they can both read from the same Gold layer. Instead of every team building its own fragile pipeline, the data platform becomes <strong>a shared memory that every AI product plugs into</strong>. On Databricks this maps naturally onto Delta tables, Unity Catalog for governance, and vector search on top.</p>
+
+<h2>If you are starting tomorrow</h2>
+<ul>
+<li>Invest in Silver before you shop for a better model.</li>
+<li>Treat metadata as a first-class feature, not an afterthought.</li>
+<li>Measure retrieval quality on its own. If the right chunk never reaches the model, no prompt will save you.</li>
+</ul>
+<p>AI quality is decided long before the prompt. It is decided in the layers underneath.</p>`
+    },
+    {
+      id: "agent-laptop",
+      title: "I Built an Agent That Uses My Laptop. Here's What Broke.",
+      dek: "Five lessons from building Axon, a voice agent that controls my laptop and phone.",
+      tags: ["AI"], date: "September 28, 2026", mins: 5,
+      cover: `<span class="kick">building</span><span class="big">The<br><em>Agent</em> Log</span><div class="term">&gt; open chrome and book a cab<br>plan: 4 steps · vision: on<br><s>✗ selector :contains() not found</s><br>✓ fallback → text match · done</div>`,
+      body: `
+<p>Axon started as a weekend project: a voice assistant for my Windows laptop. It grew into an agent that listens for a wake word, plans a task, sees my screen, clicks and types in apps, drives the browser and controls my Android phone. Along the way almost everything broke at least once. Here is what I learned.</p>
+
+<h2>1. Ship tiny tickets, test every one</h2>
+<p>Agents fail in compound ways. A planner bug looks like a vision bug, which looks like a browser bug. The only thing that kept me sane was scoping work into small tickets and running the test suite after each one, then trying the real behaviour by hand. <strong>Green tests are necessary but not sufficient</strong>. An agent that passes unit tests can still click the wrong button.</p>
+
+<h2>2. LLMs invent selectors that do not exist</h2>
+<p>When I let the model write browser selectors, it kept producing things like <code>button:contains('Submit')</code>. That looks reasonable and is not valid CSS, so Playwright throws. The fix was a fallback chain: try the selector, and if it fails, fall back to matching visible text, then to vision. <strong>Never execute model output without a validation step in between.</strong></p>
+
+<h2>3. Read API errors literally</h2>
+<p>For a whole evening every call returned a 400 error. The cause was a structured-output setting applied in the wrong scope, so requests that did not need it were being rejected. The error message told me exactly that; I just did not read it carefully. When an integration fails, slow down and read the error before changing code.</p>
+
+<h2>4. Put a human gate before anything irreversible</h2>
+<blockquote>An agent that can act on your behalf can also make mistakes on your behalf.</blockquote>
+<p>Axon asks for confirmation before submitting forms, sending messages, deleting files or spending money. It sounds like friction, but it is what makes me comfortable giving it real tasks. The trick is to gate the action, not the thinking: let the agent plan freely and stop only at the point of no return.</p>
+
+<h2>5. Vision is cheaper than you think</h2>
+<p>I expected screen understanding to need a huge model. In practice OCR plus a small, fast multimodal model handled most of what I needed: reading a dialog, finding a button, checking that a page loaded. Save the expensive calls for planning.</p>
+
+<h2>Small things that cost me hours</h2>
+<ul>
+<li>A built-in audio library that only played one sound format. Switching to a proper audio library fixed playback and recording in one move.</li>
+<li>Phone control over ADB works well for Android. iOS is a different story without a Mac.</li>
+<li>Wake-word detection should run as a light background service, separate from the heavy agent loop.</li>
+</ul>
+<p>The biggest lesson is that agents are mostly engineering, not magic. The model provides judgment, but reliability comes from the boring parts: validation, fallbacks, tests and a clear line the agent cannot cross without asking.</p>`
+    }
+  ];
+
+  const list = document.getElementById("blog-list"), reader = document.getElementById("reader");
+  const cats = ["All", ...new Set(POSTS.flatMap(p => p.tags))];
+  let cur = "All";
+  function chips(){
+    document.getElementById("chips").innerHTML = cats.map(c => {
+      const n = c === "All" ? POSTS.length : POSTS.filter(p => p.tags.includes(c)).length;
+      return `<button class="chip" type="button" data-cat="${c}" aria-pressed="${c === cur}">${c} <b>${n}</b></button>`;
+    }).join("");
+  }
+  function posts(){
+    document.getElementById("posts").innerHTML = POSTS.filter(p => cur === "All" || p.tags.includes(cur)).map(p => `
+      <article class="dash post">
+        <div class="cover" aria-hidden="true">${p.cover}</div>
+        <div class="pinfo">
+          <h3>${p.title}</h3>
+          <p>${p.dek}</p>
+          <div class="meta">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}<span>${p.date} · ${p.mins} min read</span></div>
+          <button class="btn read" type="button" data-read="${p.id}">Read Now
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </article>`).join("");
+  }
+  function open(id){
+    const p = POSTS.find(x => x.id === id); if (!p) return;
+    reader.innerHTML = `
+      <button class="btn back" type="button" data-back>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 8H3M7 4L3 8l4 4"/></svg>All posts</button>
+      <div class="meta">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}<span>${p.date} · ${p.mins} min read</span></div>
+      <h1>${p.title}</h1>
+      <p class="dek">${p.dek}</p>
+      <div class="cover" aria-hidden="true">${p.cover}</div>
+      <div class="prose">${p.body}</div>
+      <button class="btn back" type="button" data-back style="margin-top:1.5rem">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 8H3M7 4L3 8l4 4"/></svg>All posts</button>`;
+    list.hidden = true; reader.hidden = false; scrollTo({ top: 0 });
+  }
+  function close(){ reader.hidden = true; list.hidden = false; scrollTo({ top: 0 }); }
+  document.addEventListener("click", e => {
+    const c = e.target.closest("[data-cat]"); if (c) { cur = c.dataset.cat; chips(); posts(); return; }
+    const r = e.target.closest("[data-read]"); if (r) { open(r.dataset.read); return; }
+    if (e.target.closest("[data-back]")) close();
+    if (e.target.closest('[data-go="blog"]')) close();
+  });
+  chips(); posts();
+})();
+
+/* ---------- contact ---------- */
+(function(){
+  const note = document.getElementById("note");
+  document.getElementById("form").addEventListener("submit", e => {
+    e.preventDefault();
+    const n = document.getElementById("f-name").value.trim(), m = document.getElementById("f-email").value.trim(), t = document.getElementById("f-msg").value.trim();
+    if (!n || !/^\S+@\S+\.\S+$/.test(m) || !t) { note.textContent = "Add your name, a valid email and a message, then send."; return; }
+    const href = `mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio enquiry from " + n)}&body=${encodeURIComponent(t + "\n\n— " + n + " (" + m + ")")}`;
+    const a = document.createElement("a"); a.href = href; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+    note.textContent = "Your mail app should open with this message ready. If nothing opened, copy the address below.";
+  });
+  document.getElementById("copy").addEventListener("click", e => {
+    const b = e.currentTarget, sel = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; };
+    try { navigator.clipboard.writeText(EMAIL).then(() => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1600); }, sel); } catch(_) { sel(); }
+  });
+})();
+
+/* ---------- banner: flowing silk light ---------- */
+(function(){
+  const c = document.getElementById("sky"), g = c.getContext("2d");
+  let W, H, t = Math.random() * 100, dust = [];
+  const ribbons = [
+    { col:[232,178,92],  base:.52, amp:.20, f:.0042, sp:.55, ph:0,   n:34, gap:1.6 },
+    { col:[226,120,150], base:.60, amp:.17, f:.0055, sp:.42, ph:2.1, n:30, gap:1.4 },
+    { col:[150,128,255], base:.45, amp:.22, f:.0036, sp:.33, ph:4.2, n:30, gap:1.8 }
+  ];
+  function size(){
+    const r = c.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height; c.width = W * d; c.height = H * d; g.setTransform(d, 0, 0, d, 0, 0);
+    dust = Array.from({ length: Math.round(W / 10) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.2 + .3, v: .08 + Math.random() * .25, p: Math.random() * 6.28 }));
+  }
+  function draw(){
+    t += reduceMotion ? 0 : .006;
+    const bg = g.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0, "#0c0a12"); bg.addColorStop(.5, "#161020"); bg.addColorStop(1, "#1d1118");
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    // soft glows
+    [[.22,.35,"232,178,92",.22],[.78,.62,"150,128,255",.2],[.55,.15,"226,120,150",.14]].forEach(([x,y,col,a], i) => {
+      const gx = W * (x + Math.sin(t * .3 + i) * .04), gy = H * (y + Math.cos(t * .25 + i) * .06), rr = Math.max(W, H) * .45;
+      const rg = g.createRadialGradient(gx, gy, 0, gx, gy, rr); rg.addColorStop(0, `rgba(${col},${a})`); rg.addColorStop(1, `rgba(${col},0)`);
+      g.fillStyle = rg; g.fillRect(0, 0, W, H);
+    });
+    g.globalCompositeOperation = "lighter";
+    g.lineWidth = 1;
+    for (const rb of ribbons) {
+      for (let k = 0; k < rb.n; k++) {
+        const kk = k / rb.n, a = Math.sin(kk * Math.PI) * .22;
+        g.strokeStyle = `rgba(${rb.col[0]},${rb.col[1]},${rb.col[2]},${a})`;
+        g.beginPath();
+        for (let x = -10; x <= W + 10; x += 6) {
+          const tw = Math.sin(x * rb.f * .7 + t * rb.sp * 1.3 + rb.ph) * (kk - .5) * H * .35;
+          const y = H * rb.base
+            + Math.sin(x * rb.f + t * rb.sp + rb.ph) * H * rb.amp
+            + Math.sin(x * rb.f * 2.2 - t * rb.sp * .8 + rb.ph) * H * rb.amp * .35
+            + tw + (k - rb.n / 2) * rb.gap;
+          x <= -10 ? g.moveTo(x, y) : g.lineTo(x, y);
+        }
+        g.stroke();
+      }
+    }
+    for (const d of dust) {
+      d.y -= d.v; d.x += Math.sin(t * 2 + d.p) * .15; if (d.y < -4) { d.y = H + 4; d.x = Math.random() * W; }
+      g.fillStyle = `rgba(255,236,200,${.25 + .35 * Math.abs(Math.sin(t * 3 + d.p))})`; g.beginPath(); g.arc(d.x, d.y, d.r, 0, 6.28); g.fill();
+    }
+    g.globalCompositeOperation = "source-over";
+    if (!reduceMotion && !document.hidden) requestAnimationFrame(draw);
+  }
+  function start(){ size(); draw(); }
+  start();
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(start, 150); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && !reduceMotion) requestAnimationFrame(draw); });
+})();
+
+</script>
